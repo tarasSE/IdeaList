@@ -1,4 +1,4 @@
-package com.taras.idealist.model;
+package com.idealist.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

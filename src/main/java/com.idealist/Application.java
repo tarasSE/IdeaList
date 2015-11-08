@@ -1,4 +1,4 @@
-package com.taras.idealist;
+package com.idealist;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
