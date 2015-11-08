@@ -3,6 +3,7 @@ package com.taras.idealist.model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @EqualsAndHashCode(callSuper = true)
@@ -10,6 +11,7 @@ import javax.persistence.Entity;
 @Entity
 public class Category extends BaseEntity {
 
+    @Column(nullable = false)
     private String name;
 
 }

@@ -10,19 +10,22 @@
 
 
     <properties>
-        <spring-boot-starter-data-jpa.version>1.2.5.RELEASE</spring-boot-starter-data-jpa.version>
-        <spring-boot-starter-web.version>1.2.5.RELEASE</spring-boot-starter-web.version>
-        <spring-boot-starter-test.version>1.2.5.RELEASE</spring-boot-starter-test.version>
+        <spring-boot-starter-data-jpa.version>${spring-boot}</spring-boot-starter-data-jpa.version>
+        <spring-boot-starter-web.version>${spring-boot}</spring-boot-starter-web.version>
+        <spring-boot-starter-test.version>${spring-boot}</spring-boot-starter-test.version>
         <springloaded.version>1.2.4.RELEASE</springloaded.version>
-        <spring-boot-maven-plugin.version>1.2.5.RELEASE</spring-boot-maven-plugin.version>
-        <spring-boot-starter-data-rest.version>1.2.5.RELEASE</spring-boot-starter-data-rest.version>
+        <spring-boot-maven-plugin.version>${spring-boot}</spring-boot-maven-plugin.version>
+        <spring-boot-starter-data-rest.version>${spring-boot}</spring-boot-starter-data-rest.version>
         <h2.version>1.4.188</h2.version>
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
-        <spring-boot-starter-security.version>1.2.5.RELEASE</spring-boot-starter-security.version>
+        <spring-boot-starter-security.version>${spring-boot}</spring-boot-starter-security.version>
         <spring-security-oauth2.version>2.0.7.RELEASE</spring-security-oauth2.version>
         <lombok.version>1.16.6</lombok.version>
-        <maven-compiler-plugin.source>1.8</maven-compiler-plugin.source>
-        <maven-compiler-plugin.target>1.8</maven-compiler-plugin.target>
+        <maven-compiler-plugin.source>1.7</maven-compiler-plugin.source>
+        <maven-compiler-plugin.target>1.7</maven-compiler-plugin.target>
+        <mysql-connector-java.version>5.1.36</mysql-connector-java.version>
+        <spring-boot>1.2.5.RELEASE</spring-boot>
+        <spring-boot-configuration-processor.version>${spring-boot}</spring-boot-configuration-processor.version>
     </properties>
 
     <dependencies>
@@ -47,13 +50,18 @@
             <version>${spring-boot-starter-data-jpa.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>${h2.version}</version>
-            <scope>runtime</scope>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.h2database</groupId>-->
+            <!--<artifactId>h2</artifactId>-->
+            <!--<version>${h2.version}</version>-->
+            <!--<scope>runtime</scope>-->
+        <!--</dependency>-->
 
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector-java.version}</version>
+        </dependency>
 
         <!-- Web -->
         <dependency>
@@ -70,16 +78,26 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Security -->
+        <!-- Configuration -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-            <version>${spring-boot-starter-security.version}</version>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <version>${spring-boot-configuration-processor.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Measuring -->
+
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>1.10.5</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.security.oauth</groupId>
-            <artifactId>spring-security-oauth2</artifactId>
-            <version>${spring-security-oauth2.version}</version>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-generator-annprocess</artifactId>
+            <version>1.10.5</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
