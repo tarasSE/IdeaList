@@ -6,7 +6,6 @@ import lombok.EqualsAndHashCode;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.validation.constraints.Min;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -14,11 +13,11 @@ import javax.validation.constraints.Min;
 @Table(name =  "users")
 public class User extends BaseEntity {
 
-    @Min(value = 6)
+//    @Min(value = 6)
     @Column(nullable = false, unique = true, length = 50)
     private String name;
 
-    @Min(value = 6)
+//    @Min(value = 6)
     @Column(nullable = false, length = 50)
     private String password;
 
