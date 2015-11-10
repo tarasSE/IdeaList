@@ -83,7 +83,7 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
 
     Category getOne(@Param("id") Long id);
 
-    boolean exists(@Param("exist") Long exist);
+    boolean exists(@Param("id") Long id);
 
     void delete(@Param("id") Long id);
 

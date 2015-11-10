@@ -1,8 +1,7 @@
-package com.idealist.service;
+package com.idealist.repository;
 
 import com.idealist.Application;
 import com.idealist.model.User;
-import com.idealist.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -57,7 +56,7 @@ public class UserRepositoryIntegrationTests {
     }
 
     @Test
-    public void findsFirstPageOfCities() {
+    public void findAllTest() {
 
         List<User> users = this.repository.findAll();
 
