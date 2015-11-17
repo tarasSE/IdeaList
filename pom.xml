@@ -25,6 +25,10 @@
         <hsqldb.version>2.3.3</hsqldb.version>
         <springloaded.version>1.2.4.RELEASE</springloaded.version>
         <json-path.version>2.0.0</json-path.version>
+        <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
+        <spring-boot-autoconfigure.version>1.2.7.RELEASE</spring-boot-autoconfigure.version>
+        <jmh-core.version>1.10.5</jmh-core.version>
+        <jmh-generator-annprocess.version>1.10.5</jmh-generator-annprocess.version>
     </properties>
 
     <dependencies>
@@ -92,13 +96,13 @@
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-core</artifactId>
-            <version>1.10.5</version>
+            <version>${jmh-core.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-generator-annprocess</artifactId>
-            <version>1.10.5</version>
+            <version>${jmh-generator-annprocess.version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -106,6 +110,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jetty</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>${spring-boot-autoconfigure.version}</version>
         </dependency>
 
     </dependencies>
@@ -132,6 +142,29 @@
                     <source>${maven-compiler-plugin.source}</source>
                     <target>${maven-compiler-plugin.target}</target>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven-resources-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/classes/static</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/webapp</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
 
         </plugins>

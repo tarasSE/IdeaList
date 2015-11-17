@@ -1,6 +1,7 @@
 package com.idealist;
 
 import com.idealist.repository.CategoryRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +22,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+@Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
@@ -39,19 +41,24 @@ public class ApplicationTests {
 	@Before
 	public void setUp() {
 		this.mvc = MockMvcBuilders.webAppContextSetup(this.context).build();
+		log.info("setup");
 	}
 
 	@Test
 	@Description(value = "Test root")
 	public void testHome() throws Exception {
 
+		log.info("test home");
+
 		this.mvc.perform(get("/")).andExpect(status().isOk())
-				.andExpect(content().string(containsString("categories")));
+				.andExpect(content().string(containsString("")));
 	}
 
 	@Test
 	@Description(value = "Test CategoryRepository.getOne()")
 	public void getOneCategory() throws Exception {
+
+		log.info("test getOne Category");
 
 		this.mvc.perform(
 				get("/categories/1"))
@@ -68,6 +75,8 @@ public class ApplicationTests {
 	@Description(value = "Test CategoryRepository.findByName()")
 	public void findByNameCategory() throws Exception {
 
+		log.info("test findByName Category");
+
 		this.mvc.perform(
 				get("/categories/search/findByName?name=test_name"))
 				.andExpect(status().isOk())
@@ -78,6 +87,7 @@ public class ApplicationTests {
 	@Description(value = "Test CategoryRepository.findAll()")
 	public void findAllCategory() throws Exception {
 
+		log.info("test findAll Category");
 		this.mvc.perform(
 				get("/categories"))
 				.andExpect(status().isOk())
@@ -87,6 +97,8 @@ public class ApplicationTests {
 	@Test
 	@Description(value = "Test CategoryRepository.delete()")
 	public void deleteCategory() throws Exception {
+
+		log.info("test delete Category");
 
 		this.mvc.perform(
 				delete("/categories/5"));

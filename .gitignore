@@ -1,4 +1,6 @@
 /IdeaList.iml
 /.idea
+/.log
+/.test_log
 /.gitignore
 /target
