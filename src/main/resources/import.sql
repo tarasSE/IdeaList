@@ -13,11 +13,11 @@ INSERT INTO categories (name) VALUES ('test_name3');
 INSERT INTO categories (name) VALUES ('test_name4');
 
 /* Ideas */
-INSERT INTO ideas (description, priority, category) VALUES ('test_description', 1, 1);
-INSERT INTO ideas (description, priority, category) VALUES ('test_description1', 1, 1);
-INSERT INTO ideas (description, priority, category) VALUES ('test_description2', 1, 1);
-INSERT INTO ideas (description, priority, category) VALUES ('test_description3', 1, 1);
-INSERT INTO ideas (description, priority, category) VALUES ('test_description4', 1, 1);
+INSERT INTO ideas (description, priority, category) VALUES ('test_description', 1, 4);
+INSERT INTO ideas (description, priority, category) VALUES ('test_description1', 1, 4);
+INSERT INTO ideas (description, priority, category) VALUES ('test_description2', 1, 4);
+INSERT INTO ideas (description, priority, category) VALUES ('test_description3', 1, 4);
+INSERT INTO ideas (description, priority, category) VALUES ('test_description4', 1, 4);
 
 
 

@@ -2,6 +2,7 @@ package com.idealist.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -10,6 +11,7 @@ import javax.validation.constraints.Min;
 @Data
 @Entity
 @Table(name = "ideas")
+@EnableAutoConfiguration
 public class Idea extends BaseEntity {
 
     @Column(nullable = false)
